@@ -20,4 +20,11 @@ class CourseToolkitTest {
 
         assertFalse(result);
     }
+
+    @Test
+    void proverka_na_nol() {
+        boolean result = CourseToolkit.isEven(0);
+        assertTrue(result);
+    }
 }
+
