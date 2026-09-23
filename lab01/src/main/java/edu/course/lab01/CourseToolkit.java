@@ -15,4 +15,69 @@ public final class CourseToolkit {
     public static boolean isEven(int number) {
         return number % 2 == 0;
     }
+
+    public static boolean isPrime(int number) {
+        if (number < 2) {
+            return false;
+        }
+        for (int divisor = 2; divisor * divisor <= number; divisor++) {
+            if (number % divisor == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private static String reverse(String text) {
+        char[] chars = text.toCharArray();
+        char[] reversed = new char[chars.length];
+
+        for (int i = 0; i < chars.length; i++) {
+            reversed[chars.length - 1 - i] = chars[i];
+        }
+        return new String(reversed);
+    }
+    public static boolean isPalindrome(String text){
+        if (text == null) {
+            throw new IllegalArgumentException("Строка не может быть null");
+        }
+        return text.equals(reverse(text));
+    }
+
+    public static double average(int[] values) {
+        if (values == null) {
+            throw new IllegalArgumentException("Массив не может быть пустым");
+        }
+        int sum = 0;
+        for (int value : values) {
+            sum += value;
+        }
+        return (double) sum / values.length;
+    }
+
+
+    public static int min(int[] values) {
+        if (values == null || values.length == 0) {
+            throw new IllegalArgumentException("Массив не может быть пустым");
+        }
+        int minimum = values[0];
+        for (int value : values) {
+            if (value < minimum) {
+                minimum = value;
+            }
+        }
+        return minimum;
+    }
+    public static int max(int[] values) {
+        if (values == null || values.length == 0) {
+            throw new IllegalArgumentException("Массив не может быть пустым");
+        }
+        int maximum = values[0];
+        for (int value : values) {
+            if (value > maximum) {
+                maximum = value;
+            }
+        }
+        return maximum;
+    }
 }
